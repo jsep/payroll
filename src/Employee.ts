@@ -1,10 +1,10 @@
-import {Salary} from "./Salary";
+import { Salary } from "./Salary";
 
 export interface Employee {
-    id: string;
-    cedula: string;
-    name: string;
-    phone: string;
-    jobName: string;
-    currentSalary?: Salary
+  id: string;
+  cedula: string;
+  name: string;
+  phone: string;
+  jobName: string;
+  currentSalary?: Salary;
 }

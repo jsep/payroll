@@ -1,6 +1,6 @@
-import {Employee} from "./Employee";
+import { Employee } from "./Employee";
 
 export interface Salary {
-    employee: Employee;
-    amount: number;
+  employee: Employee;
+  amount: number;
 }
