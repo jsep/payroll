@@ -1,6 +1,6 @@
-import { Payment } from "./Payment";
+import { Payment } from "./Payment"
 
 export interface Payroll {
-  date: Date;
-  payments: Payment[];
+  date: Date
+  payments: Payment[]
 }

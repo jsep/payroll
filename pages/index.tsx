@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site"
 import { Layout } from "@/components/layout"
 import { buttonVariants } from "@/components/ui/button"
 
+
 export default function IndexPage() {
   return (
     <Layout>
