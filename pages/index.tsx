@@ -17,7 +17,10 @@ export default function IndexPage() {
       </Head>
       <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
         <div className="flex max-w-[980px] flex-col items-start gap-2">
-          <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
+          <h1
+            data-testid="title"
+            className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl"
+          >
             Lista de nominas
           </h1>
         </div>
@@ -42,7 +45,7 @@ export function SearchNominas() {
 export function PayrollList() {
   return (
     <div className="my-6 w-full overflow-y-auto">
-      <table className="w-full">
+      <table className="w-full" data-testid="payroll-list">
         <thead>
           <tr className="m-0 border-t border-slate-300 p-0 even:bg-slate-100 dark:border-slate-700 dark:even:bg-slate-800">
             <th className="border border-slate-200 px-4 py-2 text-left font-bold dark:border-slate-700 [&[align=center]]:text-center [&[align=right]]:text-right">
@@ -99,6 +102,7 @@ export function PayrollList() {
 export function NewPayrollButton() {
   return (
     <Button
+      data-testid="new-payroll-button"
       className={
         "fixed bottom-10 right-10 h-16 w-16 rounded-full p-2 text-white shadow-lg"
       }
