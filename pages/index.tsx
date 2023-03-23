@@ -1,7 +1,7 @@
 import Head from "next/head"
-import { PayrollPage } from "@/payroll/PayrollPage"
 
 import { Layout } from "@/components/layout"
+import { PayrollPage } from "@/components/payroll/PayrollPage"
 
 
 export default function IndexPage() {

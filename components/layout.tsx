@@ -1,3 +1,5 @@
+import React from "react"
+
 import { SiteHeader } from "@/components/site-header"
 
 interface LayoutProps {

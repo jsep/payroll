@@ -1,20 +1,17 @@
+import Link from "next/link"
 import { Plus } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Divider } from "@/components/ui/divider"
 import { Input } from "@/components/ui/input"
+import { PageTitle } from "@/components/ui/page-title"
 
 
 export function PayrollPage() {
   return (
     <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1
-          data-testid="title"
-          className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl"
-        >
-          Lista de nominas
-        </h1>
+        <PageTitle title={"Lista de nominas"} />
       </div>
       <div className="flex gap-4">
         <SearchPayroll />
@@ -92,13 +89,15 @@ export function PayrollList() {
 
 export function NewPayrollButton() {
   return (
-    <Button
-      data-testid="new-payroll-button"
-      className={
-        "fixed bottom-10 right-10 h-16 w-16 rounded-full p-2 text-white shadow-lg"
-      }
-    >
-      <Plus className={"h-[100] w-[100]"} />
-    </Button>
+    <Link href="/payroll/new">
+      <Button
+        data-testid="new-payroll-button"
+        className={
+          "fixed bottom-10 right-10 h-16 w-16 rounded-full p-2 text-white shadow-lg"
+        }
+      >
+        <Plus className={"h-[100] w-[100]"} />
+      </Button>
+    </Link>
   )
 }
