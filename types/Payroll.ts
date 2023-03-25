@@ -47,4 +47,46 @@ export class Payroll {
 
     return newDate
   }
+
+  static fromExcelText(excelText: string): Payroll {
+    const payroll = new Payroll()
+    const lines = excelText.split("\n")
+    const headers = lines.shift()
+    payroll.payments = lines.map((line) => {
+      const parts = line.split("\t")
+      const payment = new Payment()
+      payment.netAmount = toAmount(parts[14])
+      payment.biWeeklyGrossAmount = toAmount(parts[3])
+      payment.grossAmount = toAmount(parts[8])
+
+      // create employee
+      const employee = new Employee()
+      employee.name = parts[0].trim()
+      employee.jobName = parts[1].trim()
+      employee.currentSalary = toAmount(parts[2])
+      payment.employee = employee
+
+      payment.additions = {
+        vacations: toAmount(parts[4]),
+        holidays: toAmount(parts[5]),
+        bonus: toAmount(parts[6]),
+        tips: toAmount(parts[7]),
+      }
+
+      payment.subtractions = {
+        sfs: toAmount(parts[9]),
+        pension: toAmount(parts[10]),
+        isr: toAmount(parts[12]),
+        debt: toAmount(parts[13]),
+      }
+
+      return payment
+    })
+    return payroll
+  }
+}
+
+// Number format in $ 56,000.00
+function toAmount(text: string): number {
+  return Number(Array.from(text.matchAll(/\d/g)).join("")) / 100
 }

@@ -1,20 +1,20 @@
 import { Employee } from "./Employee"
 
-export interface Payment {
+export class Payment {
   employee: Employee
-  amount: number
+  netAmount: number
+  grossAmount: number
+  biWeeklyGrossAmount: number
   additions: {
     vacations: number
     holidays: number
     bonus: number
     tips: number
-    other: number
   }
   subtractions: {
     sfs: number
     pension: number
     isr: number
     debt: number
-    others: number
   }
 }

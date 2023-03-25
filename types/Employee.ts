@@ -1,10 +1,8 @@
-import { Salary } from "./Salary"
-
-export interface Employee {
+export class Employee {
   id: string
   cedula: string
   name: string
   phone: string
   jobName: string
-  currentSalary?: Salary
+  currentSalary?: number
 }
