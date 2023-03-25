@@ -3,7 +3,7 @@ export type PageTitleProps = {
   title: string
 }
 
-export function PageTitle({ id = "title", title }: PageTitleProps) {
+export function PageHeader({ id = "title", title }: PageTitleProps) {
   return (
     <h1
       data-testid={id}

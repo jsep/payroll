@@ -5,7 +5,7 @@ import { Payroll } from "@/types/Payroll"
 import { Layout } from "@/components/layout"
 import { Divider } from "@/components/ui/divider"
 import { Input } from "@/components/ui/input"
-import { PageTitle } from "@/components/ui/page-title"
+import { PageHeader } from "@/components/ui/page-header"
 
 
 export default function NewPayrollPage() {
@@ -29,7 +29,7 @@ export default function NewPayrollPage() {
           console.log(Payroll.fromExcelText(pastedData))
         }}
       >
-        <PageTitle title={"Nueva nomina"} />
+        <PageHeader title={"Nueva nomina"} />
         <div className="flex gap-4">
           <Input
             className={"w-[50%]"}

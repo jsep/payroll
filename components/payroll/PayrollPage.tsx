@@ -4,14 +4,14 @@ import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Divider } from "@/components/ui/divider"
 import { Input } from "@/components/ui/input"
-import { PageTitle } from "@/components/ui/page-title"
+import { PageHeader } from "@/components/ui/page-header"
 
 
 export function PayrollPage() {
   return (
     <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <PageTitle title={"Lista de nominas"} />
+        <PageHeader title={"Lista de nominas"} />
       </div>
       <div className="flex gap-4">
         <SearchPayroll />
