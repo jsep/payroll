@@ -1,3 +1,4 @@
+import { Employee } from "@/types/Employee"
 import { titleCase } from "@/lib/utils"
 import { Payment } from "./Payment"
 
@@ -21,21 +22,27 @@ export class Payroll {
     })
     const year = payrollDate.getUTCFullYear()
     const day = payrollDate.getUTCDate()
-    return titleCase(`${month} ${day} ${year}`)
+    return titleCase(`${month} ${day} - ${year}`)
   }
 
   toPayrollDate(date: Date) {
     const newDate = new Date(date)
-    if (newDate.getUTCDate() >= 23) {
-      // move to the first day of the month
-      newDate.setUTCMonth(newDate.getUTCMonth() + 1)
-      newDate.setUTCDate(1)
-    } else if (newDate.getUTCDate() <= 5) {
-      // move to first day of the month
-      newDate.setUTCDate(1)
-    } else {
-      // move to the 15th of the month
+    const lastDayOfMonth = new Date(
+      newDate.getUTCFullYear(),
+      newDate.getUTCMonth() + 1,
+      0
+    ).getUTCDate()
+
+    if (newDate.getUTCDate() === lastDayOfMonth) {
+      return newDate
+    } else if (
+      newDate.getUTCDate() >= 15 &&
+      newDate.getUTCDate() < lastDayOfMonth
+    ) {
       newDate.setUTCDate(15)
+    } else {
+      newDate.setUTCMonth(newDate.getUTCMonth() - 1)
+      newDate.setUTCDate(lastDayOfMonth)
     }
 
     return newDate
