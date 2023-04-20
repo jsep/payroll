@@ -2,6 +2,7 @@ import { useMemo } from "react"
 import Head from "next/head"
 
 import { Payroll } from "@/types/Payroll"
+import { PayrollFromExcel } from "@/types/PayrollFromExcel"
 import { Layout } from "@/components/layout"
 import { Divider } from "@/components/ui/divider"
 import { Input } from "@/components/ui/input"
@@ -26,7 +27,8 @@ export default function NewPayrollPage() {
         onPaste={(event) => {
           const clipboardData = event.clipboardData
           const pastedData = clipboardData.getData("text")
-          console.log(Payroll.fromExcelText(pastedData))
+          console.log("pastedData", pastedData)
+          console.log(new PayrollFromExcel(pastedData))
         }}
       >
         <PageHeader title={"Nueva nomina"} />
@@ -41,7 +43,7 @@ export default function NewPayrollPage() {
         <Divider />
         <div className="flex flex h-80 w-full items-center justify-center gap-4 border-2">
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            Pegar aqui nomina de Excel
+            Pegar aquí nomina de Excel
           </p>
         </div>
       </section>
